@@ -12,7 +12,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:id="@+id/root_layout"
+        tools:showIn="@layout/activity_main">
 
         <TextView
             android:id="@+id/textView"
@@ -28,8 +30,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.01999998" />
 
+
         <EditText
-            android:id="@+id/IPAddress"
+            android:id="@+id/ipaddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -45,7 +48,7 @@
             app:layout_constraintWidth_percent="0.8" />
 
         <EditText
-            android:id="@+id/Port"
+            android:id="@+id/port"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -56,10 +59,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IPAddress"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/ipaddress"
+            app:layout_constraintVertical_bias="0.001"
             app:layout_constraintWidth_percent="0.8" />
-
 
         <Button
             android:id="@+id/button"
@@ -73,25 +75,72 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IPAddress"
+            app:layout_constraintTop_toBottomOf="@+id/ipaddress"
             app:layout_constraintVertical_bias="0.111" />
 
-        <TextView
-            android:id="@+id/secondTextView"
+        <LinearLayout
+            android:id="@+id/jlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@{ViewModel.isOn}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="Content of EditText" />
+            android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="44dp"
+            android:layout_height="307dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginBottom="100dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/rudderseekbar">
+
+            <SeekBar
+                android:id="@+id/throttleseekbar"
+                android:layout_width="330dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progress="0"
+                android:rotation="270" />
+        </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/joysticklayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button"
+                app:layout_constraintVertical_bias="0.0"
+                android:orientation="horizontal"/>
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/rudderseekbar"
+            android:layout_width="334dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="253dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="23dp"
+            android:max="200"
+            android:progress="100"
+            app:layout_constraintBottom_toTopOf="@+id/jlayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

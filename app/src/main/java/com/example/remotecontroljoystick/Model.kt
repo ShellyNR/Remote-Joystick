@@ -29,7 +29,7 @@ object Model {
 
     // connect to flightgear
     fun initModel(IP: String, Port: Int ): LiveData<String>{
-        _current.value = "here"
+        _current.value = IP
         return Current
     }
 
