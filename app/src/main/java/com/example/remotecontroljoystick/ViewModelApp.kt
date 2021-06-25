@@ -1,6 +1,5 @@
 package com.example.remotecontroljoystick
 
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.lifecycle.ViewModel
@@ -10,18 +9,15 @@ import androidx.lifecycle.MutableLiveData
 
 class ViewModelApp : ViewModel() {
     fun setAileron(a: Float) {
-        Log.d("Aileron:", a.toString());
+        //Log.d("Aileron:", a.toString());
 
     }
 
     fun setElevator(e: Float) {
-        Log.d("Elevator", e.toString());
+        //Log.d("Elevator", e.toString());
 
     }
 
-    val _isOn = MutableLiveData<String>()
-    val isOn: LiveData<String>
-        get() = Model.Current
 }
 
 

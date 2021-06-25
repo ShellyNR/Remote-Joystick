@@ -132,15 +132,13 @@
             android:layout_marginTop="253dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginBottom="23dp"
             android:max="200"
             android:progress="100"
-            app:layout_constraintBottom_toTopOf="@+id/jlayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/jlayout"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
