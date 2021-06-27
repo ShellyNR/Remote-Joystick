@@ -8,15 +8,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 class ViewModelApp : ViewModel() {
-    fun setAileron(a: Float) {
-        //Log.d("Aileron:", a.toString());
-
-    }
-
-    fun setElevator(e: Float) {
-        //Log.d("Elevator", e.toString());
-
-    }
 
 }
 
