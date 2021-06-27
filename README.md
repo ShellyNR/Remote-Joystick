@@ -7,7 +7,7 @@ The app was written in Kotlin, edit in android studio IDE and use MVVM architect
 The app allows the user to connect as a client to the FG server and send command strings through this connection,  
 these commands will move the plane and we will see the plane moving in the FG simulator.  
 _______________________________________________________________________________________________________
-• Video Link --->
+• Video Link --->https://youtu.be/JOIfJQP0__0
 _______________________________________________________________________________________________________
 • Presentation --->  [Project Presentation.pdf](https://github.com/ShellyNR/Remote-Joystick/files/6721598/Project.Presentation.pdf)
 
