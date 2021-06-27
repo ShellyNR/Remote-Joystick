@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.remotecontroljoystick.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Button
+import android.widget.SeekBar
 
 
 class MainActivity : AppCompatActivity(){
@@ -31,27 +32,39 @@ class MainActivity : AppCompatActivity(){
                 onClick(it)
         }
 
+        val rseek = findViewById<View>(R.id.rudderseekbar) as SeekBar
+        rseek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                var rudder:Double = (progress-100).toDouble()
+                rudder = rudder/100.0
+                Model.q.add("set /controls/flight/rudder " + rudder.toString() + "\r\n")
+            }
+        })
+
+        val tseek = findViewById<View>(R.id.throttleseekbar) as SeekBar
+        tseek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                var throttle:Double = progress.toDouble()
+                throttle = throttle/100.0
+                Model.q.add("set /controls/engines/current-engine/throttle " + throttle.toString() + "\r\n")
+            }
+        })
+
+
         var act_main = object:Service {
             override fun onChange(a: Float, e: Float) {
-                mainViewModel.setAileron(a)
-                mainViewModel.setElevator(e)
+                setAileron(a)
+                setElevator(e)
             }
         }
 
-        /**
-
-        // initializing the joystick
-        val joystick: Joystick = Joystick(this,Service { a: Double, e: Double -> {mainViewModel.setAileron(a)
-            mainViewModel.setElevator(e)} } )
-        **/
-
         val joystick: Joystick = Joystick(this,act_main)
 
-
-
         joysticklayout.addView(joystick)
-
-
 
     }
 
@@ -59,28 +72,17 @@ class MainActivity : AppCompatActivity(){
     public final fun onClick(view: View) {
         val IP = ipaddress.text.toString()
         val Port = port.text.toString().toInt()
-        /**
-        val IP = findViewById<EditText>(R.id.ipaddress).text.toString()
-        val Port = findViewById<EditText>(R.id.port).text.toString().toInt()
-        **/
         Model.initModel(IP,Port)
     }
 
 
-
-    fun onJoystickMoved(xPercent: Float, yPercent: Float, id: Int) {
-        /**
-        when (id) {
-            R.id.joystickRight -> Log.d(
-                "Right Joystick",
-                "X percent: $xPercent Y percent: $yPercent"
-            )
-            R.id.joystickLeft -> Log.d("Left Joystick", "X percent: $xPercent Y percent: $yPercent")
-
-        }
-        **/
+    public final fun setAileron(a:Float) {
+        Model.q.add("set /controls/flight/aileron " + a.toString() + "\r\n")
     }
 
+    public final fun setElevator(e:Float) {
+        Model.q.add("set /controls/flight/elevator " + e.toString() + "\r\n")
+    }
 
 
 }
