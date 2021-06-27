@@ -16,13 +16,15 @@ ________________________________________________________________________________
 
 The project is built in an MVVM architecture.
 
-The View - The XML file, activity_main.xml, is loaded to the view by MainActivity.kt. Joystick.kt is an independent component that is also being loaded to the view by MainActivity.kt.
-Joystick.kt has a member named 'act' that implements Service, which is a functional interface with the method onChange. When initializing a Joystick.kt instance in the MainActivity.kt in order to use it in the app, the programmer can inject  the action that needs to happen when the joystick moves, in our case this action is sending the values to the Flight Gear via the Model object.
-This action includes sending the values to the Model object via the MainActivity.kt. The MainActivity.kt inserts the values to the queue in the Model object, and the Model is responsible for sending the values to the Flight Gear.
+The View - The XML file, activity_main.xml, is loaded to the view by MainActivity.kt. Joystick.kt is an independent component that is also being loaded to the view by MainActivity.kt.  
+Joystick.kt has a member named 'act' that implements Service, which is a functional interface with the method onChange.  
+When initializing a Joystick.kt instance in the MainActivity.kt in order to use it in the app, the programmer can inject  the action that needs to happen when the joystick moves, in our case this action is sending the values to the Flight Gear via the Model object.  
+This action includes sending the values to the Model object via the MainActivity.kt. The MainActivity.kt inserts the values to the queue in the Model object, and the Model is responsible for sending the values to the Flight Gear.  
 
-The ViewModel - in this project MainActivity.kt acts as a ViewModel. It is responsible for adding the listeners to the seek bars, which in turn inserts the values of the seek bars to the queue in the Model object whenever their values are chenged by the user in the view layer. The ViewModel is also responsible for the connect button - it gets the values of the requested IP and port number from the relevant elements in the xml file, and sends them to the init method of the Model object. 
+The ViewModel - in this project MainActivity.kt acts as a ViewModel. It is responsible for adding the listeners to the seek bars, which in turn inserts the values of the seek bars to the queue in the Model object whenever their values are chenged by the user in the view layer.  
+The ViewModel is also responsible for the connect button - it gets the values of the requested IP and port number from the relevant elements in the xml file, and sends them to the init method of the Model object.  
 
-The Model  - The MOdel object is responsible for establishing the connection to the Flight Gear and sending values to the simulator via a queue according to the users' actions.
+The Model  - The MOdel object is responsible for establishing the connection to the Flight Gear and sending values to the simulator via a queue according to the users' actions.  
 _______________________________________________________________________________________________________
 • Preliminary requirements
 
