@@ -9,9 +9,11 @@ these commands will move the plane and we will see the plane moving in the FG si
 _______________________________________________________________________________________________________
 • Video Link --->
 _______________________________________________________________________________________________________
-• Presentation ---> 
+• Presentation --->  [Project Presentation.pdf](https://github.com/ShellyNR/Remote-Joystick/files/6721598/Project.Presentation.pdf)
+
 _______________________________________________________________________________________________________
 • Architecture MVVM
+
 --
 _______________________________________________________________________________________________________
 • Preliminary requirements
@@ -37,3 +39,6 @@ If the all project was running on one thread, because sending the commands to th
 _______________________________________________________________________________________________________
 
 • class diagram 
+
+![image](https://user-images.githubusercontent.com/82324960/123545056-ea231f00-d75e-11eb-8808-88970124371b.png)
+
