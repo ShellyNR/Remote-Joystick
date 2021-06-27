@@ -136,20 +136,10 @@ public class Joystick : SurfaceView, SurfaceHolder.Callback, View.OnTouchListene
                     val constrainedX = centerX + (e.x - centerX) * ratio
                     val constrainedY = centerY + (e.y - centerY) * ratio
                     drawJoystick(constrainedX, constrainedY)
-                    /**
-                    joystickCallback!!.onJoystickMoved(
-                        (constrainedX - centerX) / baseRadius,
-                        (constrainedY - centerY) / baseRadius,
-                        id
-                    )
-                    **/
 
                     act.onChange((constrainedX - centerX) / baseRadius, (constrainedY - centerY) / baseRadius )
                 }
             } else drawJoystick(centerX, centerY)
-            act.onChange(0f, 0f)
-
-            //joystickCallback!!.onJoystickMoved(0f, 0f, id)
 
         }
         return true
